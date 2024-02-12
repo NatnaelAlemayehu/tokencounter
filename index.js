@@ -8,13 +8,6 @@ const app = express();
 app.use(cors());
 app.use(bodyParser.json())
 
-app.get("/", (req, res) => {
-    const enc = encoding_for_model("gpt-4-vision-preview");
-    const ans = enc.encode("Hello World")
-    console.log (ans)
-    res.json({ tokens: ans.length });
-});
-
 app.post('/api/tokens', (req, res) => {
     const userText = req.body.text;
     const enc = encodingForModel("gpt-4-vision-preview");
